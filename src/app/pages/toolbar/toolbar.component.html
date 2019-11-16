@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <ul class="nav-icons">
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/user">User</a></li>
+  </ul>
+  <div class="wrap" *ngIf="router.url == '/home'">
+      <div class="search">
+          <input #search 
+          (keyup.enter)="searchData(search.value)"
+          type="text" class="searchTerm" placeholder="What are you looking for?">
+          <button type="submit" class="searchButton" (click)="searchData(search.value)">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </div>
+    </div>
+</nav>
+  
+  

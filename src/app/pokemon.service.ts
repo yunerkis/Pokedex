@@ -3,37 +3,36 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class PokemonService {
 
   constructor(protected http: HttpClient) { }
 
-  
-  public get(url: string){
+  public get(url: string) {
     return Observable.create(observer => {
       const options = {
         headers: {
           'Content-Type': 'application/json'
         }
-      }
+      };
       const request = this.http.get(url, options);
-      request.subscribe((data) => {
+      request.subscribe(data => {
         observer.next({ status: true, data: data });
         observer.complete();
-      }), err => {
-        observer.next({ status: false, data: err });
-        observer.complete();
-      },() => {}
-    })
-  
+      }),
+        err => {
+          observer.next({ status: false, data: err });
+          observer.complete();
+        },
+        () => {};
+    });
   }
 
-  getUsers() {
+  getPokemons() {
     return Observable.create(observer => {
-      let url = `${environment.SERVER_API}/todos`;
+      const url = `${environment.POKEMONS_API}?limit=200&offset=0`;
       return this.get(url).subscribe((result) => {
         observer.next({ status: true, data: result.data });
         observer.complete();
@@ -41,9 +40,9 @@ export class UserService {
     })
   }
 
-  getDetail(id){
+  getDetailPokemon(id){
     return Observable.create(observer => {
-      let url = `${environment.SERVER_API}/todos/`+id;
+      const url = `${environment.POKEMONS_API}` + id + '/';
       return this.get(url).subscribe((result) => {
         observer.next({ status: true, data: result.data });
         observer.complete();

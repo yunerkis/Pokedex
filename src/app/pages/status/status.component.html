@@ -1,16 +1,32 @@
-<app-home></app-home>
-  <ul class="data data__ul">
-    <span>ID</span>
-    <li class="data__detail">{{detail.id}}</li>
-  </ul>
-  <ul class="data data__ul">
-    <span>Detail</span>
-    <li class="data__tittle"> {{detail.title}}</li>
-  </ul>
-  <ul class="data data__ul">
-    <span>Status</span>
-    <li>
-      <div class="data__status--error" *ngIf="!detail.completed"></div>
-      <div class="data__status--successe" *ngIf="detail.completed"></div>
-    </li>
-  </ul>
+<app-toolbar></app-toolbar>
+<button class="btn-back" (click)="goBack()">Back</button>
+<div class="detail-panel">
+  <h1 class="detail-panel__header"> {{detail.name}} # {{detail.id}}</h1>
+  <div class="detail-panel__content">
+    <div class="detail-header">
+      <div class="detail-header__img">
+          <img src="{{detail.sprites.front_default}}" 
+          alt="Pokemon" 
+          width="140px">
+      </div>
+      <div class="detail-header__info">
+        <div class="detail-header__types">
+          <span class="detail-header--monster-type" *ngFor="let type of detail.types">{{type.type.name}}</span>
+        </div>
+        <div class="detail-header__detail">
+          <p>Height:<span> {{detail.height}}</span></p>
+          <p>Weight:<span> {{detail.weight}}</span></p>
+        </div>
+
+      </div>
+    </div>
+    <div class="detail-below__header">
+      <h1 class="detail-panel__header"> Moves <i class="glyphicon glyphicon-arrow-down" (click)="movesShow()"></i> </h1>
+    </div>
+    <div class="detail-below__moves" *ngIf="isMovesShown">
+      <ul class="detail-below__moves--ul">
+        <li *ngFor="let move of detail.moves">{{move.move.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

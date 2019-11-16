@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { UserService } from './user.service';
+import { PokemonService } from './pokemon.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { StatusComponent } from './pages/status/status.component';
 
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { ToolbarComponent } from './pages/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthService } from './auth.service';
     LoginComponent,
     HomeComponent,
     UserComponent,
-    StatusComponent
+    StatusComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { AuthService } from './auth.service';
   providers: [
     AuthService,
     AuthGuardService,
-    UserService
+    PokemonService
   ],
   bootstrap: [AppComponent]
 })

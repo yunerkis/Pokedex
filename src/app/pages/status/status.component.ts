@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from '../../user.service'
+import { ActivatedRoute  } from '@angular/router';
+import { PokemonService } from '../../pokemon.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-status',
@@ -9,20 +10,35 @@ import { UserService } from '../../user.service'
 })
 export class StatusComponent implements OnInit{
 
+  public isEvolutionShown = false;
+  public isMovesShown = false;
   constructor(
-    private router: Router,
-    public userService: UserService,
-  ){}
+    private route: ActivatedRoute,
+    public pokemonService: PokemonService,
+    private location: Location
+  ){ }
 
-  detail: any = [];
+  detail: any;
+  evolution: any;
 
   ngOnInit() {
-    if(localStorage.getItem('userDetail') != null){
-      let id = localStorage.getItem('userDetail');
-      this.userService.getDetail(id).subscribe((result: any) => {
-        this.detail = result.data
-      });
-    }
+    const id = this.route.snapshot.paramMap.get('id');
+    this.pokemonService.getDetailPokemon(id).subscribe((result: any) => {
+      this.detail = result.data;
+      console.log(this.detail);
+    });
+  }
+
+  public movesShow() {
+    this.isMovesShown = ! this.isMovesShown;
+  }
+
+  public evolutionShow() {
+    this.isEvolutionShown = ! this.isEvolutionShown;
+  }
+
+  public goBack() {
+    this.location.back();
   }
 
 }

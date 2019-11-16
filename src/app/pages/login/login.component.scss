@@ -1,149 +1,84 @@
-//Content Style
-
 .login {
-    align-items: center;
+  width: 360px;
+  padding: 15rem 0 0;
+  margin: auto;
+
+  &__title {
+    text-align: center;
+    color: #ff5eff;
+  }
+
+  &__img {
+    text-align: center;
+    img {
+      border-radius: 50%;
+      border: 1px solid #ff5effad;
+      z-index: 2;
+      margin-bottom: -2rem;
+      padding: 1rem;
+    }
+  }
+
+  &__form {
+    background: white;
+    max-width: 360px;
+    padding: 45px;
+    box-shadow: 10px 10px 5px -6px rgba(225,179,218,0.75);
+  }
+
+  &__input {
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    background: #ff5effad ;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover,
+    &:active,
+    &:focus {
+      background: #ff5eff;
+    }
+  }
+
+  &__btn-cancel {
+    @extend .login__btn; 
+    background: #e81e1e ;
+    &:hover,
+    &:active,
+    &:focus {
+      background: #a91c1c;
+    }
+  }
+
+  &__btn-content {
     display: flex;
-    justify-content: center;
-    min-height: 100%;
-    margin-top: 4rem;
+  }
 
-    &__container {
-        border-radius: 5px;
-        display: flex;  
-        flex-direction: column;
-        border: .1rem solid pink;
-        width:450px;
-        box-shadow: 10px 10px 5px 0px rgba(245,199,245,1);
-    }
+  &__message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
 
-    &__logo {
-        font-size:20px;
-        text-align: center;
-        padding: 20px 20px 0;
-        margin:0;
-        
-        &--login-item {
-            color: #ffff;
-            padding:25px 25px 0;
-            margin: 20px 20px 0;	
-            border-radius: 3px;
-        }
-    }
-}
-
-//Form Styele
-
-.form {
-    input {
-      border: 1px solid pink;
-      color: inherit;
-      font: inherit;
-      margin: 0;
-      outline: 0;
-      padding: 0;
-    }
-
-    &__login label,
-    &__login input[type="text"],
-    &__login input[type="submit"] {
-      border-radius: 0.25rem;
-      padding: 1rem;
-      color: #3A3F44;  
-    }
-    &__login label {
-      background-color: pink;
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
-      border: 1px solid pink;
-
-    }
-    
-    &__login input[type="submit"] {
-      cursor: pointer;
-      background-color: pink;
-      color: #eee;
-      width: 50%;
-      margin: 1rem;
-      padding: .5rem;
-    }
-    &__login input[type="submit"]:focus, &__login input[type="submit"]:hover {
-      background-color: purple;
-    }
-    &__field {
-      display: flex;
-      margin-bottom: 2rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    &--span {
-      display: flex;
-      justify-content: center;
-      margin: 1rem;
-      color: #54afff;
+    span {
+      color: #ff5eff;
       cursor: pointer;
     }
-
-    &--error {
-      background: #ff00008f;
-      height: 1rem;
-      margin: 1rem;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-
-    .hidden {
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
+  }
 }
 
-// BreackPoints
+// Media Querys
 
-@media (max-width: 640px){
-
-    .logo {
-        
-        &__container {
-            width: auto;
-        }
-    
-        &__logo {
-            font-size:13px;
-            padding: 0;
-    
-            &--login-item {
-                padding:0;
-                margin: 20px 20px 0;	
-            }
-        }
-
-    }
-    
+@media (max-width: 420px) {
+  .login {
+    padding: 4rem;
+  }
 }
-     
-@media (min-width: 768px){
-    
-    
-}
-    
-@media (min-width: 1024px){
-    
-    
-}
-    
-@media (min-width: 1200px){
-    
-    
-}
-
-
-

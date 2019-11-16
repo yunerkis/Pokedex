@@ -1,7 +1,16 @@
-<app-home></app-home>
-<br>
-<div *ngFor="let data of datas">
-    <ul class="data data__ul">
-        <li class="data__li" (click)="clickItem(data.id)">{{data.title}}{{data.completed}}</li>
-    </ul>
+<app-toolbar></app-toolbar>
+<div class="login">
+  <div class="login__form">
+      <h3 class="login__title">UPDATE</h3>
+      <form #update = "ngForm" (ngSubmit) = "onClickSubmit(update.value)">
+        <input id="update-name" class="login__input" type="text" placeholder="name" name="name" ngModel/>
+        <input id="update-password" class="login__input" type="password" placeholder="password" name="password" ngModel/>
+        <input id="update-password-repeat" class="login__input" type="password" placeholder="password repeat" name="passwordrepeat" ngModel/>
+        <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+        <div class="login__btn-content">
+          <button class="login__btn" type="submit">Update</button>
+          <button class="login__btn-cancel" (click)="toggleShow()">Cancel</button>
+        </div>
+      </form>
+    </div>
 </div>

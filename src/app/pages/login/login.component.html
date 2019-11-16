@@ -1,23 +1,42 @@
-<div class="login ">
-  <div class="login login__container">
-      <div class="login__logo">Assessment Login</div>
-      <div class="login__logo login__logo--login-item">
-        <form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)" class="form form__login">
-          <div class="form-field" *ngIf="edited">
-            <label class="form__user" for="login-username"><span class="hidden">Username</span></label>
-            <input id="login-username" type="text" class="form-input" placeholder="Username" name="user" required ngModel> 
-            <input type="submit" value="Log in" *ngIf="edited">
-            <span (click)="registerUser()" class="form--span">Register</span>
-            <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
-          </div>
-          <div class="form-field" *ngIf="!edited">
-            <label class="form__user" for="login-username"><span class="hidden">Register</span></label>
-            <input id="login-username"  type="text" placeholder="Register" name="register" required ngModel>
-            <input type="submit" value="Register" >
-            <span (click)="cancel()" class="form--span">Cancel</span>
-            <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+<!-- lOGIN FORM -->
+<div *ngIf="!isShown">
+  <div class="login">
+    <div class="login__img">
+      <img src="../../../assets/img/pokedex.png" alt="pokedex" >
+    </div>
+    <div class="login__form">
+      <h3 class="login__title">LOGIN</h3>
+      <form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)">
+        <input id="login-username" class="login__input" type="text" placeholder="username" name="user" ngModel/>
+        <input id="login-password" class="login__input" type="password" placeholder="password" name="password" ngModel/>
+        <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+        <button type="submit" class="login__btn" >login</button>
+        <p class="login__message" (click)="toggleShow()">Not registered? <span>Create an account</span></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER FORM -->
+<div *ngIf="isShown">
+  <div class="login">
+      <div class="login__img">
+        <img src="../../../assets/img/pokedex.png" alt="pokedex" >
+      </div>
+      <div class="login__form">
+        <h3 class="login__title">REGISTER</h3>
+        <form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)">
+          <input id="register-name" class="login__input" type="text" placeholder="name" name="name" ngModel/>
+          <input id="register-email" class="login__input" type="email" placeholder="email" name="register" ngModel/>
+          <input id="register-password" pattern="unamePattern" required class="login__input" type="password" placeholder="password" name="password" ngModel/>
+          <input id="register-password-repeat" pattern="unamePattern" required class="login__input" type="password" placeholder="password repeat" name="passwordrepeat" ngModel/>
+          <div *ngIf="this.msj" class="form--error"> {{this.msj}}</div>
+          <div class="login__btn-content">
+            <button class="login__btn" type="submit">Register</button>
+            <button class="login__btn-cancel" (click)="toggleShow()">Cancel</button>
           </div>
         </form>
       </div>
-  </div>
+    </div>
 </div>
+

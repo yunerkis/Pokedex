@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserService } from '../../user.service'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit{
+export class UserComponent{
 
-  datas: any
+  msj: string;
+  user: any = [];
+  usercopy: any = [];
 
   constructor(
-    private router: Router,
-    public userService: UserService,
   ) { }
 
-  ngOnInit() {
-    this.userService.getUsers().subscribe((result: any) => {
-      this.datas = result.data
-    });
+  onClickSubmit(formData) {
+    this.user = JSON.parse(localStorage.getItem('userList'));
+    if (formData.update != null) {
+      if (formData.password !== formData.passwordrepeat) {
+        this.msj = 'contraseña no coincide';
+      } else {
+        this.usercopy = this.user.filter( e => e.id === formData.id);
+        const newUser = { 
+          id: formData.id,
+          name: formData.name,
+          password: formData.password
+        };
+        this.usercopy.push(newUser);
+        this.user = JSON.stringify(this.user);
+        localStorage.setItem('userList', this.user);
+      }
+    }
   }
-
-  clickItem(id) {
-    localStorage.setItem('userDetail', id);
-    this.router.navigate(['status']);
-  }
-
 }

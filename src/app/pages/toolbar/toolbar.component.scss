@@ -1,0 +1,92 @@
+a {
+  text-decoration: none;
+  position: relative;
+  color:white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar {
+  color:white;
+  background: pink;
+  height: 50px;
+  position:relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons {
+margin-top: 0;
+right: 1rem;
+vertical-align: middle;
+}
+
+.nav-icons li {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 15px;
+  transition: background 0.3s ease-in;
+  margin-top: 1rem;
+}
+
+.nav-icons li:hover {
+background: rgb(0,0,0,0.2);
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 1.6rem;
+  height: 20px;
+  border-radius: 1rem 0 0 1rem;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 37px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  &__menu {
+    background-color: white;
+    margin-top: 10rem;
+    width: 15rem;
+  }
+}
+
+// Media Querys
+
+@media (max-width: 420px) {
+  .nav-icons {
+    padding-left: 0;
+  }
+}

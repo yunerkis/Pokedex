@@ -1,35 +1,37 @@
-a {
-    text-decoration: none;
-    position: relative;
-    color:white;
-    font-size: 12.5px;
-    cursor: pointer;
-}
-
-.navbar {
-    color:white;
-    background: pink;
-    height: 50px;
-    position:relative;
+.pokemon {
+  height: 60rem;
+  overflow: auto;
+  &__wrapper{
     display: flex;
-    align-items: center;
-}
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
 
-.nav-icons {
-	margin-top: 0;
-	right: 1rem;
-	vertical-align: middle;
-}
+  &__list {
+    cursor: pointer;
+    list-style-type: none;
+    margin: 10px;
+    position: relative;
+    width: 180px;
+  }
 
-.nav-icons li {
-	display: inline-block;
-	padding: 10px;
-	border-radius: 50%;
-	margin-left: 15px;
-    transition: background 0.3s ease-in;
-    margin-top: 1rem;
-}
+  &__monster {
+    background-color: white;
+    box-shadow: 10px 10px 5px -6px rgba(225,179,218,0.75);
+    padding: 1rem;
+    cursor: pointer;
 
-.nav-icons li:hover {
-	background: rgb(0,0,0,0.2);
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    text-align: center;
+  }
+
+  hr {
+    border-top: 1px solid #ff5effad;
+  }
 }

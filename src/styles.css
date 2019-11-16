@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url('../src/assets/img/mew.jpg');
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
+.btn-back {
+  text-transform: uppercase;
+  background: #ff5effad;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
+
+.form--error {
+  color: red;
+  margin-bottom: 1rem;
+  text-align: justify;
+}

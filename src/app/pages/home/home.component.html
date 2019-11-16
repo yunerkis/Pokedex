@@ -1,7 +1,18 @@
-<nav class="navbar">
-	<ul class="nav-icons">
-		<li><a (click)="logout()">logout</a></li>
-		<li><a routerLink="/user">User</a></li>
-		<li><a routerLink="/status">Status</a></li>
+<app-toolbar (search)="searchPokemon($event)"></app-toolbar>
+<div class="pokemon">
+	<ul class="pokemon__wrapper">
+		<li class="pokemon__list" *ngFor="let pokemon of pokemons | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+			<div class="pokemon__monster" [routerLink]="['/status', pokemon.id]">
+				<img src="{{pokemon.sprite}}" 
+				alt="Pokemon" 
+				width="140px">
+				<div class="pokemon__info">
+					<h4>{{pokemon.name}}</h4> 
+					<hr>
+					<p>Type:<span *ngFor="let type of pokemon.types">{{type.type.name}} </span></p> 
+				</div>
+			</div>
+		</li>
 	</ul>
-</nav>
+</div>
+<ngb-pagination [collectionSize]="pokemons.length" [pageSize]="pageSize" [maxSize]="5" [rotate]="true" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>

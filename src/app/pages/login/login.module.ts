@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {FormControl, FormGroup, Validators,FormsModule } from '@angular/forms';
+import {FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 
 import { LoginComponent} from './login.component';
 
@@ -15,9 +15,11 @@ import { LoginComponent} from './login.component';
     FormControl,
     FormGroup,
     Validators,
-    FormsModule 
+    FormsModule
   ],
-  exports:[LoginComponent],
+  exports:[
+    LoginComponent
+  ],
   providers: [],
   bootstrap: [LoginComponent]
 })

@@ -10,7 +10,7 @@ import { StatusComponent } from './pages/status/status.component';
   const routes: Routes = [
     { path: 'home',                                                component: HomeComponent,    canActivate: [AuthGuardService] },
     { path: 'user',                                                component: UserComponent,    canActivate: [AuthGuardService] },
-    { path: 'status',                                              component: StatusComponent,  canActivate: [AuthGuardService] },
+    { path: 'status/:id',                                              component: StatusComponent,  canActivate: [AuthGuardService] },
     { path: 'login',                                               component: LoginComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
   ];
